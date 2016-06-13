@@ -16,6 +16,7 @@ class TCPHandler(BaseRequestHandler):
         post_message.name = 'Test message'
         post_message.latitude = 123
         post_message.longitude = 321
+        post_message.content = 'Be wary of monster'
         message_handler.MessageHandler.handle_post(post_message)
 
         print resp
