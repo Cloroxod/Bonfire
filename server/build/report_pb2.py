@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='report.proto',
   package='',
-  serialized_pb=_b('\n\x0creport.proto\"[\n\x07Message\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\x05\x12\x11\n\ttimestamp\x18\x03 \x01(\x03\x12\x10\n\x08latitude\x18\x04 \x01(\x02\x12\x11\n\tlongitude\x18\x05 \x01(\x02')
+  serialized_pb=_b('\n\x0creport.proto\"l\n\x07Message\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\x05\x12\x11\n\ttimestamp\x18\x03 \x01(\x03\x12\x10\n\x08latitude\x18\x04 \x01(\x02\x12\x11\n\tlongitude\x18\x05 \x01(\x02\x12\x0f\n\x07\x63ontent\x18\x06 \x01(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -67,6 +67,13 @@ _MESSAGE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='content', full_name='Message.content', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -79,7 +86,7 @@ _MESSAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=16,
-  serialized_end=107,
+  serialized_end=124,
 )
 
 DESCRIPTOR.message_types_by_name['Message'] = _MESSAGE
