@@ -2,6 +2,7 @@ from SocketServer import TCPServer, BaseRequestHandler, ThreadingMixIn
 import socket
 import threading
 import subprocess
+from build import report_pb2
 
 class TCPHandler(BaseRequestHandler):
     def handle(self):

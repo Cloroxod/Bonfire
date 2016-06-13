@@ -1,0 +1,7 @@
+message Message {
+    optional string name = 1;
+    optional int32 id = 2;
+    optional int64 timestamp = 3;
+    optional float latitude = 4;
+    optional float longitude = 5;
+}
