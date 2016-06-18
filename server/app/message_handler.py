@@ -1,10 +1,11 @@
 from app.utilities.location import LocationManager
 from app.utilities.redis import TestRedis
 from build import report_pb2
-
+import time
 
 class MessageHandler(object):
     location_manager = LocationManager(TestRedis())
+    redis = TestRedis()
 
     @classmethod
     def handle_update(cls, message):
@@ -18,6 +19,7 @@ class MessageHandler(object):
         print 'Adding message: name=%s, latitude=%s, longitude=%s, content=%s' \
               % (message.name, message.latitude, message.longitude, message.content)
         cls.location_manager.add(message.latitude, message.longitude, message.content)
+        cls.redis.set(time.time(), message.SerializeToString())
 
     @classmethod
     def handle_search(cls, message):

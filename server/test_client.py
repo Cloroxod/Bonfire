@@ -1,4 +1,5 @@
 import socket
+import time
 from build import report_pb2
 
 ip = 'localhost'
@@ -23,6 +24,7 @@ if __name__ == '__main__':
     post_message.longitude = -87.6298
     post_message.content = 'Be wary of monster'
     post_message.type = report_pb2.POST
+    post_message.timestamp = time.time()
     test_post = post_message.SerializeToString()
     client(ip, port, test_post)
 
@@ -32,6 +34,7 @@ if __name__ == '__main__':
     post_message2.longitude = -87.6584
     post_message2.content = 'Be wary of monster!!!'
     post_message2.type = report_pb2.POST
+    post_message2.timestamp = time.time()
     test_post = post_message2.SerializeToString()
     client(ip, port, test_post)
 
@@ -41,6 +44,7 @@ if __name__ == '__main__':
     post_message3.longitude = -87.9756
     post_message3.content = 'WESTMONT!!'
     post_message3.type = report_pb2.POST
+    post_message3.timestamp = time.time()
     test_post = post_message3.SerializeToString()
     client(ip, port, test_post)
 

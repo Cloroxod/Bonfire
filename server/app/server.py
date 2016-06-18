@@ -17,6 +17,7 @@ class TCPHandler(BaseRequestHandler):
 
         if update_message.type == report_pb2.POST:
             message_handler.MessageHandler.handle_post(update_message)
+            self.request.sendall('Post request sent.')
         elif update_message.type == report_pb2.SEARCH:
             search_message = message_handler.MessageHandler.handle_search(update_message)
             self.request.sendall(search_message.SerializeToString())

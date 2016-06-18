@@ -46,7 +46,7 @@ class LocationManager(object):
         rbm = self.RADIUS_BIT_MAP
         depth = rbm[radius] if radius in rbm else rbm[min(rbm.keys(), key=lambda k: abs(k-radius))]
         gh_int64 = self._encode(lat, lon)
-        gh_int64 = gh_int64 >> (64 - depth)
+        gh_int64 >>= (64 - depth)
         G = self._get_neighbors(gh_int64, depth)
         r = []
         for lb in G:
