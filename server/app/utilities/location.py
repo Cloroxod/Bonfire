@@ -57,7 +57,6 @@ class LocationManager(object):
                 r.extend(self.redis.zrangebyscore('msg', m, n, withscores=True))
         return r
 
-
     def _get_neighbors(self, _hash, depth):
         n = self._move(_hash, 0, 1, depth)
         e = self._move(_hash, 1, 0, depth)
@@ -69,7 +68,6 @@ class LocationManager(object):
         sw = self._move(_hash, -1, -1, depth)
         return [n, e, s, w, ne, nw, se, sw, _hash]
 
-
     def _move(self, _hash, x, y, depth):
         if x and y:
             t = self._movex(_hash, x, depth)
@@ -78,7 +76,6 @@ class LocationManager(object):
             return self._movex(_hash, x, depth)
         elif y:
             return self._movey(_hash, y, depth)
-
 
     def _movex(self, _hash, d, depth):
         if not d:
@@ -93,7 +90,6 @@ class LocationManager(object):
             x -= zz + 1
         x &= 0xaaaaaaaaaaaaaaaa >> (64 - depth)
         return x | y
-
 
     def _movey(self, _hash, d, depth):
         if not d:
