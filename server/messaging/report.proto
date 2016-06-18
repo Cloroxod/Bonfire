@@ -5,4 +5,18 @@ message Message {
     optional float latitude = 4;
     optional float longitude = 5;
     optional string content = 6;
+    optional MessageType type = 7;
+}
+
+enum MessageType {
+    POST = 0;
+    SEARCH = 1;
+    UPDATE = 2;
+}
+
+message SearchResult {
+    optional string name = 1;
+    optional int32 id = 2;
+    optional int64 timestamp = 3;
+    repeated Message messages = 4;
 }

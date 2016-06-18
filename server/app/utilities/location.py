@@ -21,6 +21,7 @@ class HashConstants(object):
         20: 39136.1797,
     }
 
+
 class LocationManager(object):
     def __init__(self, db):
         self.redis = db

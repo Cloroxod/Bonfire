@@ -14,5 +14,5 @@ def client(ip, port, message):
         sock.close()
 
 if __name__ == '__main__':
-    for i in xrange(10):
+    for i in xrange(1):
         client(ip, port, str(i))

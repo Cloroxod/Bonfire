@@ -13,13 +13,35 @@ class TCPHandler(BaseRequestHandler):
         resp = '{}: {}'.format(cur_thread, data)  # TODO, parse + respond.
 
         post_message = report_pb2.Message()
-        post_message.name = 'Test message'
-        post_message.latitude = 123
-        post_message.longitude = 321
+        post_message.name = 'Chicago'
+        post_message.latitude = 41.8781
+        post_message.longitude = -87.6298
         post_message.content = 'Be wary of monster'
-        message_handler.MessageHandler.handle_post(post_message)
+        post_message.type = report_pb2.POST
+        message_handler.MessageHandler.handle_update(post_message)
 
-        print resp
+        post_message2 = report_pb2.Message()
+        post_message2.name = 'Lakeview'
+        post_message2.latitude = 41.9436
+        post_message2.longitude = -87.6584
+        post_message2.content = 'Be wary of monster!!!'
+        post_message2.type = report_pb2.POST
+        message_handler.MessageHandler.handle_update(post_message2)
+
+        post_message3 = report_pb2.Message()
+        post_message3.name = 'Westmont'
+        post_message3.latitude = 41.7969
+        post_message3.longitude = -87.9756
+        post_message3.content = 'WESTMONT!!'
+        post_message3.type = report_pb2.POST
+        message_handler.MessageHandler.handle_update(post_message3)
+
+        search_message = report_pb2.Message()
+        search_message.latitude = 41.7969
+        search_message.longitude = -87.6584
+        search_message.type = report_pb2.SEARCH
+        message_handler.MessageHandler.handle_update(search_message)
+
         self.request.sendall(resp)
 
 
